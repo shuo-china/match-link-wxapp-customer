@@ -10,9 +10,6 @@
       "path": "pages/launch/launch"
     },
     {
-      "path": "pages/login/login"
-    },
-    {
       "path": "pages/home/home"
     },
     {
@@ -21,13 +18,13 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uniapp-pro",
+    "navigationBarTitleText": "叁生禧",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
     "color": "#666666",
-    "selectedColor": "#876e49",
+    "selectedColor": "#764c24",
     "list": [
       {
         "pagePath": "pages/home/home",
