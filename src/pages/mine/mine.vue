@@ -17,9 +17,6 @@
                             </view>
                             <text class="user-id">ID: {{ userInfo?.id }}</text>
                         </view>
-                        <view class="arrow-box">
-                            <uni-icons type="right" size="16" color="#ccc"></uni-icons>
-                        </view>
                     </view>
                 </view>
             </view>
@@ -29,21 +26,14 @@
                 <view class="menu-group">
                     <view class="menu-item">
                         <view class="item-left">
-                            <uni-icons type="person-filled" size="22" color="#ff758c"></uni-icons>
+                            <uni-icons type="person-filled" size="22" color="#764c24"></uni-icons>
                             <text class="item-text">我的资料</text>
-                        </view>
-                        <uni-icons type="right" size="16" color="#ccc"></uni-icons>
-                    </view>
-                    <view class="menu-item">
-                        <view class="item-left">
-                            <uni-icons type="heart-filled" size="22" color="#ff758c"></uni-icons>
-                            <text class="item-text">心动记录</text>
                         </view>
                         <uni-icons type="right" size="16" color="#ccc"></uni-icons>
                     </view>
                     <view class="menu-item" @click="handleUnbind">
                         <view class="item-left">
-                            <uni-icons type="settings-filled" size="22" color="#ff758c"></uni-icons>
+                            <uni-icons type="settings-filled" size="22" color="#764c24"></uni-icons>
                             <text class="item-text">解除绑定</text>
                         </view>
                         <uni-icons type="right" size="16" color="#ccc"></uni-icons>
@@ -120,7 +110,7 @@ const handleUnbind = () => {
 }
 
 .header-bg {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #764c24 0%, #9e6b3d 100%);
     width: 100%;
     padding: 30px 20px 40px;
     box-sizing: border-box;
@@ -163,8 +153,8 @@ const handleUnbind = () => {
 .user-card {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
-    padding: 24px 20px;
-    box-shadow: 0 10px 30px rgba(255, 117, 140, 0.2);
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(118, 76, 36, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.6);
 
@@ -177,12 +167,11 @@ const handleUnbind = () => {
             margin-right: 16px;
 
             .avatar {
-                padding: 5px;
                 width: 70px;
                 height: 70px;
-                border-radius: 50%;
+                border-radius: 4px;
                 border: 3px solid #fff;
-                box-shadow: 0 4px 12px rgba(255, 117, 140, 0.3);
+                box-shadow: 0 2px 6px rgba(118, 76, 36, 0.1);
             }
         }
 
@@ -195,7 +184,7 @@ const handleUnbind = () => {
             .name-row {
                 display: flex;
                 align-items: center;
-                margin-bottom: 6px;
+                margin-bottom: 8px;
 
                 .nickname {
                     font-size: 18px;
@@ -207,16 +196,12 @@ const handleUnbind = () => {
 
             .user-id {
                 font-size: 12px;
-                color: #999;
-                background-color: #f5f5f5;
+                color: #666;
+                background-color: rgba(0, 0, 0, 0.03);
                 padding: 2px 8px;
                 border-radius: 4px;
                 align-self: flex-start;
             }
-        }
-
-        .arrow-box {
-            margin-left: 10px;
         }
     }
 }
@@ -231,16 +216,16 @@ const handleUnbind = () => {
     padding: 0 40px;
 
     .login-logo {
-        width: 140px;
-        height: 140px;
-        margin-bottom: 40px;
+        width: 120px;
+        height: 120px;
+        margin-bottom: 34px;
         border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(255, 117, 140, 0.2);
+        box-shadow: 0 10px 30px rgba(118, 76, 36, 0.2);
     }
 
     .login-text-group {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 36px;
 
         .app-name {
             display: block;
@@ -260,12 +245,12 @@ const handleUnbind = () => {
         width: 100%;
         height: 50px;
         line-height: 50px;
-        background: linear-gradient(135deg, #ff9a9e 0%, #ff758c 100%);
+        background: linear-gradient(135deg, #764c24 0%, #9e6b3d 100%);
         color: white;
         border-radius: 25px;
         font-size: 18px;
         font-weight: 500;
-        box-shadow: 0 10px 20px rgba(255, 117, 140, 0.3);
+        box-shadow: 0 10px 20px rgba(118, 76, 36, 0.3);
 
         &:active {
             opacity: 0.9;

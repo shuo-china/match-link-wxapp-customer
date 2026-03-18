@@ -14,6 +14,9 @@
     },
     {
       "path": "pages/mine/mine"
+    },
+    {
+      "path": "pages/mbr/detail"
     }
   ],
   "globalStyle": {
