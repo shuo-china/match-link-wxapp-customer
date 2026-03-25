@@ -24,14 +24,14 @@
             <view class="content-wrapper">
                 <!-- 功能菜单 -->
                 <view class="menu-group">
-                    <view class="menu-item">
+                    <view class="menu-item" @tap="handleFavorite">
                         <view class="item-left">
                             <uni-icons type="person-filled" size="22" color="#764c24"></uni-icons>
-                            <text class="item-text">我的资料</text>
+                            <text class="item-text">我喜欢的</text>
                         </view>
                         <uni-icons type="right" size="16" color="#ccc"></uni-icons>
                     </view>
-                    <view class="menu-item" @click="handleUnbind">
+                    <view class="menu-item" @tap="handleUnbind">
                         <view class="item-left">
                             <uni-icons type="settings-filled" size="22" color="#764c24"></uni-icons>
                             <text class="item-text">解除绑定</text>
@@ -69,10 +69,18 @@ const loading = ref(false);
 const login = (e: any) => {
     if (e.detail.code) {
         loading.value = true;
-        userStore.bindMobile(e.detail.code).finally(() => {
+        userStore.bindMobile(e.detail.code).then(() => {
+            console.log(userInfo.value)
+        }).finally(() => {
             loading.value = false;
         });
     }
+};
+
+const handleFavorite = () => {
+    uni.navigateTo({
+        url: '/pages/favorite/favorite'
+    });
 };
 
 const handleUnbind = () => {

@@ -25,8 +25,8 @@
             <text>{{ item.education_text }}</text>
           </view>
           <view class="tags-wrapper">
-            <view class="info-tag" :class="item.gender === '1' ? 'blue-tag' : 'pink-tag'" v-if="item.industry_text">
-              <text class="tag-text">{{ item.industry_text }}</text>
+            <view class="info-tag" :class="item.gender === '1' ? 'blue-tag' : 'pink-tag'" v-if="item.job_text">
+              <text class="tag-text">{{ item.job_text }}</text>
             </view>
           </view>
         </view>
@@ -64,12 +64,14 @@ const { userLevel } = storeToRefs(userStore)
 const showLoginBtn = ref(false)
 
 const isLoggedIn = computed(() => userLevel.value === UserLevel.Bound)
-let exceptUids: string[] = []
+
+let randSeed = ''
+const generateRandSeed = () => Math.random().toString(36).slice(2) + Date.now().toString(36)
 
 const { data, loadMoreStatus, search, next } =
-  useLoadMore((params) => getMbrPaginationApi(params, {
-    exceptUids
-  }), () => {
+  useLoadMore((params) => {
+    return getMbrPaginationApi({ ...params, randSeed })
+  }, () => {
     if (isLoggedIn.value) {
       return true;
     } else {
@@ -77,10 +79,13 @@ const { data, loadMoreStatus, search, next } =
       return false;
     }
   }, {
-    onSuccess(res) {
-      const uids = res.data.map(i => i.uid)
-      exceptUids.push(...uids)
-    }
+    onBefore(args) {
+      const page = args[0]?.page
+      if (page === 1) {
+        randSeed = generateRandSeed()
+      }
+    },
+
   });
 
 const toLogin = () => {
@@ -102,7 +107,7 @@ const toDetail = (item) => {
     })
   } else {
     uni.navigateTo({
-      url: '/pages/mbr/detail?uid=' + item.uid,
+      url: '/pages/mbr/detail?id=' + item.id,
     })
   }
 }

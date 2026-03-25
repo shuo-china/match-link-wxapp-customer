@@ -15,14 +15,12 @@ export function getMbrDetailApi(
 
 export function getMbrPaginationApi(
   params: Record<string, any>,
-  data?: Record<string, any>,
   options?: HttpRequestConfig,
 ) {
   return request<Pagination>({
     method: "POST",
     url: "/member/pagination",
     params,
-    data,
     ...options,
   });
 }
