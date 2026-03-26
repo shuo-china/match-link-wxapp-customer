@@ -13,6 +13,9 @@
         <!-- 封面图区域 -->
         <view class="card-header">
           <image class="cover-img" :src="item.coverPath || '/static/logo.png'" mode="aspectFill"></image>
+          <view class="vip-badge" v-if="item.vipLevel === '2'">
+            <text class="vip-text">VIP</text>
+          </view>
         </view>
 
         <!-- 信息区域 -->
@@ -186,6 +189,30 @@ onShow(() => {
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .vip-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    padding: 4px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(235, 209, 151, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .vip-text {
+      color: #ebd197;
+      font-size: 12px;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
   }
 }
 

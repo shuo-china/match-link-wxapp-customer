@@ -264,7 +264,6 @@ const previewImage = (index: number) => {
         background: #fff;
         border-radius: 20px;
         padding: 0;
-        margin-bottom: 16px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
         overflow: hidden;
 
